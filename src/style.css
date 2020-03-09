@@ -1,6 +1,29 @@
-.hello {
-  color: red;
-  height: 50vh;
-  width: 50vw;
-  background-size: cover;
+.window {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.window_content {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+
+}
+.input__field {
+
+}
+
+.list {
+
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
