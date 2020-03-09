@@ -1,7 +1,9 @@
-export default class ToDo {
-  private description: string;
-  private isDone: boolean;
-  private id: number;
+import ITodo from './Interfaces/ITodo';
+
+export default class ToDo implements ITodo{
+  description: string;
+  isDone: boolean;
+  id: number;
 
  
   constructor(_id: number, _description: string, _isDone: boolean) {
@@ -18,7 +20,8 @@ export default class ToDo {
     input.type = 'checkbox';
     input.name = 'is_complete';
     input.id = String(this.id);
-    input.checked = false;
+    input.checked = this.isDone;
+    input.addEventListener('change', this.handleDoneStatusSwitch);
 
     let h2 = document.createElement('h2');
     h2.innerText = this.description;
@@ -30,5 +33,9 @@ export default class ToDo {
     div.appendChild(h2);
     div.appendChild(button);
     return div;
+  }
+
+  private handleDoneStatusSwitch = (e: Event) => {
+    this.isDone = !this.isDone;
   }
 }
